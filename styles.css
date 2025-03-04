@@ -1,0 +1,47 @@
+body {
+    font-family: 'rubik', sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+}
+
+header h1 {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.question {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 30px;
+}
+
+.multiple-choice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.multiple-choice button {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #2B2D42;
+    cursor: pointer;
+}
+
+.multiple-choice button:hover {
+}
+
+.next {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+}
+
+.lives-remaining {
+    text-align: center;
+}
