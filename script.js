@@ -1,3 +1,8 @@
-async function fetch(){
-    response = async_fetch("https://opentdb.com/api.php?amount=30&category=9&difficulty=easy&type=multiple");
-}
+import { Quiz } from "./quiz.js";
+document.addEventListener("DOMContentLoaded", async () => {
+  const quiz = new Quiz();
+  await quiz.fetchQuestions();
+  document.querySelector(".next").addEventListener("click", () => {
+    quiz.nextQuestion();
+  });
+});
