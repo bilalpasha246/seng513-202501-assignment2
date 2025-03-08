@@ -2,9 +2,14 @@ import {Question} from "./question.js"
 export class Quiz {
     constructor(){
         this.questions = [];
-        this.currentIndex = 0;
         this.score = 0;
         this.token = null;
+    }
+
+    *questionGenerator() {
+        for (const question of this.questions) {
+          yield question;
+        }
     }
 
     async initToken(){
@@ -28,7 +33,7 @@ export class Quiz {
                 this.questions = data.results.map(
                     item => new Question(item.question, item.correct_answer, item.incorrect_answers, item.difficulty)
                 );
-                this.currentIndex = 0;
+                this.questionIterator = this.questionGenerator();
                 this.displayQuestion();
             }
         }catch(error){
@@ -41,8 +46,9 @@ export class Quiz {
         const buttons = document.querySelectorAll(".multiple-choice button");
         const nextButton = document.getElementsByClassName("next")[0];
         const scoreText = document.getElementById("score")
+        const nextResult = this.questionIterator.next();
 
-        if (this.currentIndex >= this.questions.length){
+        if (nextResult.done){
             this.fetchQuestions();
             return;
         }
@@ -51,7 +57,7 @@ export class Quiz {
         buttons.forEach(button => {
             button.style.outline = "0px solid black"     
         });
-        const currentQuestion = this.questions[this.currentIndex];
+        const currentQuestion = nextResult.value;
         container.innerHTML = currentQuestion.text;
         const choices = currentQuestion.shuffleAnswers()
         nextButton.disabled = true;
