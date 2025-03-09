@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       quiz.displayQuestion();
     }
     else{
-      window.location.href = "game-over.html";
+      window.location.replace("game-over.html");
     }
 
   });
