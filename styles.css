@@ -42,6 +42,9 @@ header h1 {
     padding: 5px 10px;
 }
 
-.lives-remaining {
+.over-txt {
     text-align: center;
+    color: red;
+    font-size: 6.5rem;
+    padding: 30px;
 }
