@@ -3,4 +3,6 @@ export class User {
         this.username = null
         this.high_scores = [];
     }
+    
+    
 }

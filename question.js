@@ -19,6 +19,13 @@ shuffleAnswers() {
 }
 
 isCorrectAnswer(choice) {
-    return choice === this.correct;
+    return this.decodeHtml(choice) === this.decodeHtml(this.correct);
 }
+
+decodeHtml(html) {
+    const text = document.createElement("textarea");
+    text.innerHTML = html;
+    return text.value;
+}
+
 }
