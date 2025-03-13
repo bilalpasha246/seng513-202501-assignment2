@@ -22,7 +22,7 @@ if(window.location.pathname.includes("index.html")){
     if(quiz.score%5 == 0 && quiz.score != 0){
       await quiz.fetchQuestions();
     }
-    if(quiz.counter == 5){
+    if(quiz.counter == 16){
       sessionStorage.setItem("quiz_score", quiz.score);
       sessionStorage.setItem("quiz_diff", quiz.getlastdifficulty())
       window.location.replace("game-over.html");
