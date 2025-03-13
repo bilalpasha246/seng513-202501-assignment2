@@ -1,45 +1,112 @@
-body {
-    font-family: 'rubik', sans-serif;
+html, body {
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
+    background: linear-gradient(135deg, #99b6c6 14%, #bcd8e5 78%);
+    color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 header {
     display: flex;
     align-items: center;
-    background-color: black;
+    background: linear-gradient(135deg, #99b6c6 14%, #a0bdca 78%);
     color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 0 40px;
 }
 
 header h1 {
+    font-family: "Caveat", cursive;
+    font-size: 30px;
     flex-grow: 1;
     text-align: center;
 }
 
+header p {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+
+#question-count {
+    padding-right: 20px;
+}
+
+#score {
+    background: #99AAB5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 .question {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 30px;
+    margin-top: 3%;
 }
 
 .multiple-choice {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 90%;
 }
 
 .multiple-choice button {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #2B2D42;
+    align-items: center;
+    height: 60px;
+    background: #99AAB5;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px;
     cursor: pointer;
 }
 
-.multiple-choice button:hover {
+.multiple-choice button:hover {}
+
+.next, .submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+    height: 50px;
+    background: #99AAB5;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-.next {
-    display: block;
-    margin: 10px auto;
-    padding: 5px 10px;
+.next .text, .submit .text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.next .icon, .submit .icon {
+    padding: 5px;
+    border-left: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+}
+
+footer {
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    bottom: 0;
+    width: 100%;
 }
 
 .over-txt {
@@ -47,4 +114,12 @@ header h1 {
     color: rgb(11, 38, 211);
     font-size: 6.5rem;
     padding: 30px;
+}
+
+input {
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
 }
