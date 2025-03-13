@@ -5,13 +5,21 @@ export class Quiz {
         this.score = 0;
         this.token = null;
         this.start = 0;
-        this.incorrect = false;
+        this.counter = 1;
+        this.fetchedDiff = [true,true]
+        this.lastDiff = null;
     }
+
+
 
     *questionGenerator() {
         for (const question of this.questions) {
           yield question;
         }
+    }
+
+    getlastdifficulty(){
+        return this.lastDiff;
     }
 
     async initToken(){
@@ -25,6 +33,7 @@ export class Quiz {
     }
 
     async fetchQuestions(){
+        var getDat = false;
         try{
             if (!this.token){
                 await this.initToken();
@@ -32,29 +41,37 @@ export class Quiz {
             let res; 
             if(this.score < 5){
                 res = await fetch(`https://opentdb.com/api.php?amount=15&difficulty=easy&type=multiple&token=${this.token}`);
-                console.log("easy");    
+                console.log("easy");
+                getDat = true;  
             }
-            else if(this.score < 10){
+            else if(this.score < 10 & this.fetchedDiff[0]){
                 res = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&token=${this.token}`);
-                console.log("medium");    
+                console.log("medium");  
+                this.fetchedDiff[0] = false;
+                getDat = true;   
             }
-            else{
+            else if(this.score >= 10 && this.fetchedDiff[1]){
                 res = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=hard&type=multiple&token=${this.token}`);
-                console.log("hard");    
+                console.log("hard");
+                this.fetchedDiff[1] = false;
+                getDat = true;       
             }
-            const data = await res.json();
-            if(data.response_code == 0){
-                this.questions = data.results.map(
-                    item => new Question(item.question, item.correct_answer, item.incorrect_answers, item.difficulty)
-                );
-                this.questionIterator = this.questionGenerator();
-                if(this.start == 0){
-                    this.displayQuestion();
-                    this.start += 1;
+            if(getDat == true){
+                const data = await res.json();
+                if(data.response_code == 0){
+                    this.questions = data.results.map(
+                        item => new Question(item.question, item.correct_answer, item.incorrect_answers, item.difficulty)
+                    );
+                    this.questionIterator = this.questionGenerator();
+                    if(this.start == 0){
+                        this.displayQuestion();
+                        this.start += 1;
+                    }
                 }
+                getDat = false;
             }
         }catch(error){
-            console.log(`Error generating token: ${error}`)
+            console.log(`Error token: ${error}`)
         }
     }
     
@@ -75,7 +92,7 @@ export class Quiz {
         });
         const currentQuestion = nextResult.value;
         diffText.innerHTML = `Difficulty: ${currentQuestion.difficulty}`
-        container.innerHTML = currentQuestion.text;
+        container.innerHTML = `Question ${this.counter}: ${currentQuestion.text}`;
         const choices = currentQuestion.shuffleAnswers()
         nextButton.disabled = true;
         nextButton.style.opacity = "0.5";
@@ -99,11 +116,12 @@ export class Quiz {
                             buttons[k].style.outline = "3px solid green";
                         }
                     }
-                    this.incorrect = true;
                     j = 1
                 }
+                this.lastDiff = currentQuestion.difficulty
                 nextButton.disabled = false;
                 nextButton.style.opacity = "1"; // Optional: make it fully visible
+                this.counter += 1;
             };
         }
 
