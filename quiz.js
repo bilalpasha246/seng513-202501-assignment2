@@ -7,12 +7,19 @@ export class Quiz {
         this.start = 0;
         this.counter = 1;
         this.fetchedDiff = [true,true]
+        this.lastDiff = null;
     }
+
+
 
     *questionGenerator() {
         for (const question of this.questions) {
           yield question;
         }
+    }
+
+    getlastdifficulty(){
+        return this.lastDiff;
     }
 
     async initToken(){
@@ -111,6 +118,7 @@ export class Quiz {
                     }
                     j = 1
                 }
+                this.lastDiff = currentQuestion.difficulty
                 nextButton.disabled = false;
                 nextButton.style.opacity = "1"; // Optional: make it fully visible
                 this.counter += 1;
