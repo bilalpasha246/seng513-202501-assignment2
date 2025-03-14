@@ -18,7 +18,7 @@ header {
 }
 
 header h1 {
-    font-family: "Caveat", cursive;
+    font-family: "monoton"; /*title font*/
     font-size: 30px;
     flex-grow: 1;
     text-align: center;

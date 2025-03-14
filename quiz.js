@@ -91,7 +91,7 @@ export class Quiz {
             button.style.outline = "0px solid black"     
         });
         const currentQuestion = nextResult.value;
-        diffText.innerHTML = `Difficulty: ${currentQuestion.difficulty}`
+        diffText.innerHTML = `Difficulty: <b>${currentQuestion.difficulty}<b>`
         container.innerHTML = `Question ${this.counter}: ${currentQuestion.text}`;
         const choices = currentQuestion.shuffleAnswers()
         nextButton.disabled = true;
