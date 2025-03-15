@@ -70,9 +70,7 @@ header p {
     cursor: pointer;
 }
 
-.multiple-choice button:hover {}
-
-.next, .submit {
+.next, .submit, .retry {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,12 +87,12 @@ header p {
     margin: 0 auto;
 }
 
-.next .text, .submit .text {
+.next .text, .submit .text, .retry .text {
     flex-grow: 1;
     text-align: center;
 }
 
-.next .icon, .submit .icon {
+.next .icon, .submit .icon, .retry .icon {
     padding: 5px;
     border-left: 1px solid #fff;
     display: flex;
@@ -116,14 +114,46 @@ footer {
 
 .over-txt {
     text-align: center;
-    color: rgb(11, 38, 211);
-    font-size: 6.5rem;
-    padding: 30px;
+}
+
+.leaderboard {
+    margin: auto;
+    border-collapse: collapse;
+    width: 60%;
+    table-layout: fixed;
+}
+
+.leaderboard td, .leaderboard th {
+    border: 1px solid #dddbdb;
+    padding: 8px;
+    text-align: center;
+}
+
+.leaderboard th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #99AAB5;
+    color: white;
+}
+
+.leaderboard tr:hover {
+    background-color: #a8a3a3;
+    opacity: 75%;
+}
+
+.attempt-call {
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+.retry {
+    margin-top: 3%;
 }
 
 /* Get Started Page */
 
-.login {
+.login, .results {
     display: flex;
     flex-direction: column;
     align-items: center;
