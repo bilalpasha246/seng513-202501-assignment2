@@ -19,6 +19,7 @@ export class User {
 
 
     finalMessage(){
+        this.user = this.username
         return(`Congrats ${this.username}, your score on this run was ${this.score}/15`)
     }
     
@@ -41,10 +42,18 @@ export class User {
         console.log(this.high_scores);
     }
 
+    getHighScores(){
+        return this.high_scores;
+    }
+
     displayRankings(){
-        const ranks = document.querySelectorAll(".leaderboard li");
+        const ranks = document.getElementById("leaderboard-body");
         for(let i = 0; i < this.high_scores.length; i++){
-            ranks[i].innerHTML = `Score: ${this.high_scores[i][0]}/15, Difficulty: ${this.high_scores[i][1]}`;
+            let row = ranks.insertRow(i);
+            row.insertCell(0).innerHTML = `${i+1}`;
+            row.insertCell(1).innerHTML = `${this.username}`;
+            row.insertCell(2).innerHTML = `${this.high_scores[i][0]}`;
+            row.insertCell(3).innerHTML = `<b>${this.high_scores[i][1].charAt(0).toUpperCase() + this.high_scores[i][1].slice(1)}<b>`;        
         }
     }
 }

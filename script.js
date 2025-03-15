@@ -52,15 +52,16 @@ if(window.location.pathname.includes("game-over.html")){
   const userScore = sessionStorage.getItem("quiz_score"); // Retrieve username
   const userDiff = sessionStorage.getItem("quiz_diff"); // Retrieve username
   console.log(usernameUser); // This will now correctly display the username 
-  const userDat = {username: usernameUser, score: userScore}
+  var userDat = {username: usernameUser, score: userScore}
   const containerCall = document.getElementsByClassName("attempt-call")[0];
   containerCall.innerHTML = user.finalMessage.call(userDat)
   if (userDiff !== null) {
     user.addHighScore(userScore, userDiff);
     sessionStorage.removeItem("quiz_diff");
   }
-
-  user.displayRankings();
+  const highScores = user.getHighScores();
+  userDat = {username: usernameUser, high_scores: highScores}
+  user.displayRankings.call(userDat);
   document.querySelector(".retry").addEventListener("click", async () => {
     window.location.replace("index.html");
   });
