@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     font-family: "Montserrat", sans-serif;
     margin: 0;
-    /* background: linear-gradient(135deg, #99b6c6 14%, #bcd8e5 78%); */
     background: #698FA0;
     color: #fff;
     background-size: cover;
@@ -49,6 +48,7 @@ header p {
     width: 75%;
 }
 
+/* Grid setup for multiple choice answers */
 .multiple-choice {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -58,6 +58,7 @@ header p {
     width: 85%;
 }
 
+/* Multiple choice button styling */
 .multiple-choice button {
     align-items: center;
     height: 80px;
@@ -71,6 +72,7 @@ header p {
     cursor: pointer;
 }
 
+/* Button styling to start quiz, go to next question, and retry quiz */
 .next, .submit, .retry {
     display: flex;
     align-items: center;
@@ -111,12 +113,11 @@ footer {
     width: 100%;
 }
 
-/* Leaderboard Page */
-
 .over-txt {
     text-align: center;
 }
 
+/* Leaderboard table */
 .leaderboard {
     margin: auto;
     border-collapse: collapse;
@@ -124,12 +125,14 @@ footer {
     table-layout: fixed;
 }
 
+/* Table data and header styling */
 .leaderboard td, .leaderboard th {
     border: 1px solid #dddbdb;
     padding: 8px;
     text-align: center;
 }
 
+/* Table header formatting */
 .leaderboard th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -137,6 +140,7 @@ footer {
     color: white;
 }
 
+/* Hover effect on table rows */
 .leaderboard tr:hover {
     background-color: #a8a3a3;
     opacity: 75%;
@@ -171,7 +175,7 @@ h2 {
 .subtitle {
     font-weight: normal;
     margin: 0;
-    font-size: 25px;
+    font-size: 22px;
     margin-top: 0.3%;
     text-align: center;
 }
@@ -199,7 +203,6 @@ input::placeholder {
 }
 
 /* Mobile Styling */
-
 @media only screen and (max-width: 768px) {
     header {
         justify-content: space-between;
@@ -238,6 +241,7 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 568px) {
+    /* Hide QuizQuest logo on quiz page */
     #quiz-header {
         display: none; 
     }
@@ -281,6 +285,7 @@ input::placeholder {
         font-size: 14px;
     }
 
+    /* Change grid layout to 1 column, 4 rows */
     .multiple-choice {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, auto);
