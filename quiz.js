@@ -14,7 +14,7 @@ export class Quiz {
 
     *questionGenerator() {
         for (const question of this.questions) {
-          yield question;
+          yield question; //Yeilds the questions and is called one by one in display questions
         }
     }
 
@@ -39,7 +39,7 @@ export class Quiz {
                 await this.initToken();
             }
             let res; 
-            if(this.score < 5){
+            if(this.score < 5){ //Changes the difficulty of the questions depending on how many the user gets right
                 res = await fetch(`https://opentdb.com/api.php?amount=15&difficulty=easy&type=multiple&token=${this.token}`);
                 console.log("easy");
                 getDat = true;  
@@ -50,7 +50,7 @@ export class Quiz {
                 this.fetchedDiff[0] = false;
                 getDat = true;   
             }
-            else if(this.score >= 10 && this.fetchedDiff[1]){
+            else if(this.score >= 10 && this.fetchedDiff[1]){ 
                 res = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=hard&type=multiple&token=${this.token}`);
                 console.log("hard");
                 this.fetchedDiff[1] = false;
@@ -84,7 +84,7 @@ export class Quiz {
         const nextResult = this.questionIterator.next();
 
         if (nextResult.done){
-            this.fetchQuestions();
+            this.fetchQuestions(); //Safety measure if the class has no more questions to display
             return;
         }
         buttons.forEach(button => {
@@ -104,8 +104,8 @@ export class Quiz {
             buttons[i].onclick = () => {
                 if (currentQuestion.isCorrectAnswer(buttons[i].innerHTML) && j==0){
                     console.log("true");
-                    buttons[i].style.outline = "3px solid green";
-                    this.score += 1;
+                    buttons[i].style.outline = "3px solid green"; //Highlights if the answer is correct by using the questions script
+                    this.score += 1; //adds it to the score
                     scoreText.innerHTML = `Score: ${this.score}/15`
                     j = 1
                 }
@@ -120,7 +120,7 @@ export class Quiz {
                 }
                 this.lastDiff = currentQuestion.difficulty
                 nextButton.disabled = false;
-                nextButton.style.opacity = "1"; // Optional: make it fully visible
+                nextButton.style.opacity = "1"; //Makes the button visible for the user
                 this.counter += 1;
             };
         }

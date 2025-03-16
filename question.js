@@ -19,7 +19,7 @@ shuffleAnswers() {
 }
 
 isCorrectAnswer(choice) {
-    return this.decodeHtml(choice) === this.decodeHtml(this.correct);
+    return this.decodeHtml(choice) === this.decodeHtml(this.correct); //Helps to normalize the ASCII Values
 }
 
 decodeHtml(html) {
