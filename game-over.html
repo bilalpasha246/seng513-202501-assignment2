@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My ES6 Site</title>
+  <title>QuizQuest</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
+<body>
   <header>
     <h1>QuizQuest</h1>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-</header>
-<body>
-    <div class="over-txt">The Results Are In!</div>
-    <p class = "attempt-call">Nice Try: Username, Your score for this run was -1\15</p>
-    <ol class = "leaderboard">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol> 
-    <button class = "retry">Try Again?</button>
-    <script type="module" src="script.js"></script>
-  </body>
+  </header>
+  <div class="results">
+    <h2>Leaderboard</h2>
+    <h1 class="subtitle">View your results below</h1>
+    <p class="attempt-call">Nice Try: Username, Your score for this run was -1\15</p>
+  </div>
+  <table class="leaderboard">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Score</th>
+        <th>Difficulty Reached</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboard-body">
+  </table>
+  <button class="retry">
+    <span class="text">Play Again</span>
+    <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+  </button>
+  <footer>
+    <p>Copyright &copy; 2025 QuizQuest</p>
+  </footer>
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>

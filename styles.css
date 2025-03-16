@@ -1,50 +1,298 @@
-body {
-    font-family: 'rubik', sans-serif;
+html, body {
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
+    background: #698FA0;
+    color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 header {
     display: flex;
     align-items: center;
-    background-color: black;
+    background: linear-gradient(135deg, #99b6c6 14%, #a0bdca 78%);
     color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 0 40px;
 }
 
 header h1 {
+    font-family: "monoton"; 
+    font-size: 30px;
     flex-grow: 1;
     text-align: center;
 }
 
-.question {
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 30px;
+header p {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 15px;
 }
 
+#question-count {
+    padding-right: 20px;
+}
+
+#score {
+    background: #99AAB5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.question {
+    text-align: center;
+    font-size: 30px;
+    padding: 30px;
+    margin: 3% auto;
+    width: 75%;
+}
+
+/* Grid setup for multiple choice answers */
 .multiple-choice {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 85%;
 }
 
+/* Multiple choice button styling */
 .multiple-choice button {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #2B2D42;
+    align-items: center;
+    height: 80px;
+    width: auto;
+    max-width: 100%; 
+    background: #99AAB5;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
     cursor: pointer;
 }
 
-.multiple-choice button:hover {
+/* Button styling to start quiz, go to next question, and retry quiz */
+.next, .submit, .retry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+    height: 50px;
+    background: #99AAB5;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-.next {
-    display: block;
-    margin: 10px auto;
-    padding: 5px 10px;
+.next .text, .submit .text, .retry .text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.next .icon, .submit .icon, .retry .icon {
+    padding: 5px;
+    border-left: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+}
+
+footer {
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    bottom: 0;
+    width: 100%;
 }
 
 .over-txt {
     text-align: center;
-    color: rgb(11, 38, 211);
-    font-size: 6.5rem;
-    padding: 30px;
 }
+
+/* Leaderboard table */
+.leaderboard {
+    margin: auto;
+    border-collapse: collapse;
+    width: 70%;
+    table-layout: fixed;
+}
+
+/* Table data and header styling */
+.leaderboard td, .leaderboard th {
+    border: 1px solid #dddbdb;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Table header formatting */
+.leaderboard th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #99AAB5;
+    color: white;
+}
+
+/* Hover effect on table rows */
+.leaderboard tr:hover {
+    background-color: #a8a3a3;
+    opacity: 75%;
+}
+
+.attempt-call {
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+.retry {
+    margin-top: 3%;
+}
+
+/* Get Started Page */
+
+.login, .results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+    margin: 0;
+}
+
+.subtitle {
+    font-weight: normal;
+    margin: 0;
+    font-size: 22px;
+    margin-top: 0.3%;
+    text-align: center;
+}
+
+input {
+    align-items: center;
+    height: 50px;
+    width: 300px;
+    background: #99AAB5;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding-left: 15px;
+    margin-top: 1%;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+.submit {
+    width: 250px;
+    margin: 20px auto;
+}
+
+/* Mobile Styling */
+@media only screen and (max-width: 768px) {
+    header {
+        justify-content: space-between;
+        padding: 10px 5px; 
+        font-size: 6px;
+        letter-spacing: 0.5px;
+    }
+
+    .leaderboard th, .leaderboard td {
+        font-size: 12px;
+    }
+
+    .login {
+        margin-top: 20%;
+    }
+
+    input {
+        margin-top: 2%;
+    }
+
+    .results {
+        margin-top: 12%;
+    }
+
+    .question {
+        font-size: 22px;
+    }
+
+    .multiple-choice {
+        width: 80%;
+    }
+
+    .multiple-choice button {
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    /* Hide QuizQuest logo on quiz page */
+    #quiz-header {
+        display: none; 
+    }
+
+    #question-count {
+        flex-grow: 1;
+        text-align: center;
+        padding: 0; 
+    }
+
+    .attempt-call {
+        font-size: 12px;
+    }
+
+    .leaderboard {
+        width: 95%;
+    }
+    
+    .leaderboard th, .leaderboard td {
+        font-size: 10px;
+    }
+
+    .next, .submit, .retry {
+        width: 130px;
+        height: 40px;
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+    
+    .next .icon, .submit .icon, .retry .icon {
+        width: 32px;
+    }
+
+    input {
+        height: 35px;
+        width: 200px; 
+        font-size: 14px;
+    }
+
+    input::placeholder {
+        font-size: 14px;
+    }
+
+    /* Change grid layout to 1 column, 4 rows */
+    .multiple-choice {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+}
+

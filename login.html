@@ -3,22 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My ES6 Site</title>
+  <title>QuizQuest</title>
   <link rel="stylesheet" href="styles.css">
-</head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<body>
   <header>
     <h1>QuizQuest</h1>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-</header>
-<body>
-    <h1>Enter Username to Begin:</h1>
-
-    <label for="username">Username:</label>
-    <input type="text" id="username"><br><br>
-    <button class="submit">Begin!</button>
+  </header>
+    <div class="login">
+      <h2>Get Started</h2>
+      <h1 class="subtitle">Enter a username <br>below to begin the quiz</h1>
+      <input type="text" id="username" placeholder="Username" required>
+      <button class="submit">
+        <span class="text">BEGIN</span>
+        <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+      </button>
+    </div>
     
     <script type="module" src="script.js"></script>
+    <footer>
+      <p>Copyright &copy; 2025 QuizQuest</p>
+    </footer>
   </body>
 </html>

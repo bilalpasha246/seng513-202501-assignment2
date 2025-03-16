@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuizQuest</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-  <header>
-    <p id="score">Score: 0/15</p>
-    <h1>QuizQuest</h1>
-    <p id="difficulty">Difficulty: ???</p>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-</header>
+
 <body>
-    <div class="question">Loading Question......</div>
-    <div class="multiple-choice">
-      <button>Option 1</button>
-      <button>Option 2</button>
-      <button>Option 3</button>
-      <button>Option 4</button>
-    </div>
-    <button class="next">Next</button>
-    <p class="lives-remaining"><i class="fa-solid fa-heart"></i></p>
-    <script type="module" src="script.js"></script>
-  </body>
+  <header>
+    <p id="difficulty">Difficulty: <b>Easy</b></p>
+    <h1 id="quiz-header">QuizQuest</h1>
+    <p id="question-count"><b>0</b> of <b>15</b></p>
+    <p id="score">Score: <b>0</b></p>
+  </header>
+  <div class="question">Loading Questions...</div>
+  <div class="multiple-choice">
+    <button>Option 1</button>
+    <button>Option 2</button>
+    <button>Option 3</button>
+    <button>Option 4</button>
+  </div>
+  <button class="next">
+    <span class="text">NEXT</span>
+    <span class="icon"><i class="fa-solid fa-chevron-right"></i></span>
+  </button>
+  <footer>
+    <p>Copyright &copy; 2025 QuizQuest</p>
+  </footer>
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>
