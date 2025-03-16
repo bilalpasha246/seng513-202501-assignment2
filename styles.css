@@ -246,6 +246,10 @@ input::placeholder {
         display: none; 
     }
 
+    .question {
+        font-size: 16px;
+    }
+
     #question-count {
         flex-grow: 1;
         text-align: center;
@@ -289,6 +293,11 @@ input::placeholder {
     .multiple-choice {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, auto);
+        margin: 12px auto;
+    }
+
+    .multiple-choice button {
+        font-size: 12px;
     }
 
     .subtitle {
